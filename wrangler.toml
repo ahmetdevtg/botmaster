@@ -5,4 +5,4 @@ compatibility_date = "2026-10-09"
 [[d1_databases]]
 binding = "DB"
 database_name = "botmaster-db"
-database_id = "BURAYA_BOTMASTER_D1_DATABASE_ID"
+database_id = "890f0a6e-29a1-49f7-8d47-fbb62107e8f3"
