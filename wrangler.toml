@@ -1,0 +1,8 @@
+name = "botmaster"
+main = "src/index.ts"
+compatibility_date = "2026-10-09"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "botmaster-db"
+database_id = "BURAYA_BOTMASTER_D1_DATABASE_ID"
