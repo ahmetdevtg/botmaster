@@ -1,6 +1,6 @@
 name = "botmaster"
 main = "src/index.ts"
-compatibility_date = "2026-10-09"
+compatibility_date = "2026-10-08"
 
 [[d1_databases]]
 binding = "DB"
