@@ -1,0 +1,6 @@
+import type { App } from '../index';
+import { layout } from '../views/html';
+export function registerDashboardRoutes(app: App) {
+app.get('/api/health',c=>c.json({ok:true,service:'botmaster',time:new Date().toISOString()}))
+app.get('/',async c=>{const db=c.env.DB;const b:any=await db.prepare('SELECT COUNT(*) n FROM bots').first();const on:any=await db.prepare('SELECT COUNT(*) n FROM bots WHERE status=1').first();const u:any=await db.prepare('SELECT COUNT(*) n FROM telegram_users').first();const today:any=await db.prepare("SELECT COUNT(*) n FROM telegram_users WHERE date(first_seen)=date('now')").first();return c.html(layout('Dashboard',`<div class="grid"><div class="card stat">Toplam Bot<b>${b?.n||0}</b></div><div class="card stat">Aktif Bot<b>${on?.n||0}</b></div><div class="card stat">Toplam Kullanıcı<b>${u?.n||0}</b></div><div class="card stat">Bugünkü Kullanıcı<b>${today?.n||0}</b></div></div><br><div class="card"><h2>BotMaster</h2><p class="muted">Botlarını, kullanıcılarını, başlangıç mesajlarını ve toplu duyuruları tek panelden yönet.</p><div class="actions"><a class="btn" href="/bots/add">+ Bot Ekle</a><a class="btn gray" href="/bulk-homepage">Toplu Ana Sayfa</a><a class="btn gray" href="/broadcast">Toplu Duyuru</a></div></div>`))})
+}
